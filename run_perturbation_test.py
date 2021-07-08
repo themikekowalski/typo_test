@@ -45,11 +45,11 @@ interesting_cases.sort(key=lambda tup:tup[2], reverse=True)
 
 # Write out our favorite interesting cases
 to_report = interesting_cases[:5]
-df = pd.DataFrame(to_report, columns = ["Original","Perturbed","Model confidence"])
-with open("failure_modes.txt","w") as outfile:
+df = pd.DataFrame(to_report, columns = ["Original", "Perturbed", "Model confidence"])
+with open("failure_modes.txt", "w") as outfile:
     outfile.write(df.to_markdown(index=False))
     
 # Write results to file
 with open("test_score.json", 'w') as outfile:
-        json.dump({ "accuracy": total_acc, "mse":mse}, outfile)
+        json.dump({"accuracy": total_acc, "mse": mse}, outfile)
 
